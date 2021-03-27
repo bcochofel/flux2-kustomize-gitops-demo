@@ -17,3 +17,7 @@ spec:
   install:
     remediation:
       retries: 3
+  values:
+    gateway:
+      service:
+        port: 8080
