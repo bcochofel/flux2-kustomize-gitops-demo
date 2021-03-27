@@ -38,3 +38,9 @@ watch Helm releases installation
 ```bash
 watch flux get helmreleases --all-namespaces
 ```
+
+watch flux reconciliation
+
+```bash
+watch flux get kustomizations
+```
