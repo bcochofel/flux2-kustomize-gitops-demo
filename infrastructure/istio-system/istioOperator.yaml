@@ -1,0 +1,27 @@
+---
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: istio-demo
+spec:
+  profile: demo
+  meshConfig:
+    accessLogFile: /dev/stdout
+    enableTracing: true
+    defaultConfig:
+      tracing:
+        sampling: 100
+  components:
+    ingressGateways:
+      - name: istio-ingressgateway
+        enabled: true
+        k8s:
+          serviceAnnotations:
+            metallb.universe.tf/address-pool: "production"
+          service:
+            type: LoadBalancer
+            loadBalancerIP: 192.168.77.105
+    egressGateways:
+      - name: istio-egressgateway
+        enabled: false
