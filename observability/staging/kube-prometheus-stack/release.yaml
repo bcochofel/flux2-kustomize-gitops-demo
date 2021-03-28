@@ -45,10 +45,6 @@ spec:
     prometheus:
       prometheusSpec:
         externalUrl: http://prometheus.demo.lab
-        scrapeInterval: 15s
-        scrapeTimeout: 10s
-        evaluationInterval: 15s
-        retention: 6h
         ruleSelector:
           matchLabels:
             tier: cluster
