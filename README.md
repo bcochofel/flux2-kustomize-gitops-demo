@@ -2,6 +2,10 @@
 
 GitOps demo with Flux2 and Kustomize
 
+## Dependencies
+
+download the kubeseal binary from [GitHub](https://github.com/bitnami-labs/sealed-secrets/releases).
+
 ## Bootstrap staging cluster
 
 The bootstrap process has some manual steps:
@@ -72,6 +76,41 @@ watch flux reconciliation
 ```bash
 watch flux get kustomizations
 ```
+
+### Sealed-Secrets
+
+At startup, the sealed-secrets controller generates a 4096-bit RSA key pair and
+persists the private and public keys as Kubernetes secrets in the flux-system namespace.
+
+You can retrieve the public key with:
+
+```bash
+kubeseal --fetch-cert \
+--controller-name=sealed-secrets \
+--controller-namespace=flux-system \
+> pub-sealed-secrets.pem
+```
+
+The public key can be safely stored in Git, and can be used to encrypt secrets
+without direct access to the Kubernetes cluster.
+
+### Setup Notifications
+
+Create a secret with your Slack incoming webhook:
+
+```bash
+kubectl -n flux-system create secret generic slack-url \
+--from-literal=address=https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+```
+
+Encrypt the secret with kubeseal (paths relative to repo root):
+
+```bash
+kubeseal --format=yaml --cert=pub-sealed-secrets.pem \
+< slack-url.yaml > apps/staging/flux-notifications/slack-url-sealed.yaml
+```
+
+Commit encrypted secret.
 
 ## Connecting to Virtual Services
 
