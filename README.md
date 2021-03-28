@@ -73,6 +73,28 @@ watch flux reconciliation
 watch flux get kustomizations
 ```
 
+## Connecting to Virtual Services
+
+To check the External IP for the Istio Ingress Gateway use:
+
+```bash
+kubectl get svc istio-ingressgateway -n istio-system
+```
+
+After checking the IP you need to add some entries on your hosts file.
+
+Example using IP 192.168.77.105 (from the MetalLB Production pool):
+
+```bash
+192.168.77.105 prometheus.demo.lab
+192.168.77.105 grafana.demo.lab
+192.168.77.105 alertmanager.demo.lab
+```
+
+You can now connect to the Web interface using those addresses.
+
+**NOTE:** Since the TLS certificates are self-signed your browser will complaint.
+
 ## References
 
 * [Istio Operator](https://istio.io/latest/docs/setup/install/operator/)
