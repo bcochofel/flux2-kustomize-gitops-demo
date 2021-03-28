@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: stable
         namespace: flux-system
-      version: "1.13.x"
+      version: "1.15.x"
   interval: 1h0m0s
   install:
     remediation:
