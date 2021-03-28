@@ -72,3 +72,10 @@ watch flux reconciliation
 ```bash
 watch flux get kustomizations
 ```
+
+## References
+
+* [Istio Operator](https://istio.io/latest/docs/setup/install/operator/)
+* [Flux GitOps Toolkit](https://toolkit.fluxcd.io/)
+* [Istio / Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/)
+* [Envoy Access Logs](https://istio.io/latest/docs/tasks/observability/logs/access-log/)

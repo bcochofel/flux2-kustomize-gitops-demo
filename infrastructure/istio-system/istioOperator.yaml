@@ -7,11 +7,10 @@ metadata:
 spec:
   profile: demo
   meshConfig:
+    enablePrometheusMerge: false
     accessLogFile: /dev/stdout
-    enableTracing: true
-    defaultConfig:
-      tracing:
-        sampling: 100
+    accessLogEncoding: JSON
+    enableTracing: false
   components:
     ingressGateways:
       - name: istio-ingressgateway
