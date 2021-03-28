@@ -110,7 +110,10 @@ kubeseal --format=yaml --cert=pub-sealed-secrets.pem \
 < slack-url.yaml > apps/staging/flux-notifications/slack-url-sealed.yaml
 ```
 
-Commit encrypted secret.
+Commit the following files:
+
+* pub-sealed-secrets.pem
+* apps/staging/flux-notifications/slack-url-sealed.yaml
 
 ## Connecting to Virtual Services
 
