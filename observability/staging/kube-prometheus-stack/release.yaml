@@ -17,7 +17,44 @@ spec:
   install:
     remediation:
       retries: 3
-#  values:
+  values:
+    commonLabels:
+      tier: cluster
+    kubeControllerManager:
+      enabled: false
+    kubeScheduler:
+      enabled: false
+    kubeProxy:
+     enabled: false
+    grafana:
+      podLabels:
+        app: grafana
+      service:
+        labels:
+          app: grafana
+      serviceMonitor:
+        enabled: true
+        labels:
+          tier: cluster
+      grafana.ini:
+        server:
+          root_url: http://grafana.demo.lab
+    alertmanager:
+      alertmanagerSpec:
+        externalUrl: http://alertmanager.demo.lab
+    prometheus:
+      prometheusSpec:
+        externalUrl: http://prometheus.demo.lab
+        scrapeInterval: 15s
+        scrapeTimeout: 10s
+        evaluationInterval: 15s
+        retention: 6h
+        ruleSelector:
+          matchLabels:
+            tier: cluster
+        serviceMonitorSelector:
+          matchLabels:
+            tier: cluster
 #    prometheus:
 #      annotations:
 #        traffic.sidecar.istio.io/includeInboundPorts: ""   # do not intercept any inbound ports
