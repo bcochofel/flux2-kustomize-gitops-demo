@@ -79,3 +79,6 @@ watch flux get kustomizations
 * [Flux GitOps Toolkit](https://toolkit.fluxcd.io/)
 * [Istio / Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/)
 * [Envoy Access Logs](https://istio.io/latest/docs/tasks/observability/logs/access-log/)
+* [Prometheus Community charts](https://github.com/prometheus-community/helm-charts)
+* [Grafana Community charts](https://github.com/grafana/helm-charts)
+* [Bitnami charts](https://github.com/bitnami/charts)
