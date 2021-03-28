@@ -4,5 +4,6 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - prometheus-community.yaml
-  - grafana.yaml
+  - grafana-community.yaml
   - bitnami.yaml
+  - jetstack.yaml

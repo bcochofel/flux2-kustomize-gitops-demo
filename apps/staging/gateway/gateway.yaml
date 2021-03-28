@@ -1,0 +1,42 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - hosts:
+        - "demo.lab"
+        - "www.demo.lab"
+        - "bookinfo.demo.lab"
+        - "grafana.demo.lab"
+        - "alertmanager.demo.lab"
+        - "prometheus.demo.lab"
+        - "istio-prometheus.demo.lab"
+        - "kiali.demo.lab"
+        - "tracing.demo.lab"
+      port:
+        name: http
+        number: 80
+        protocol: HTTP
+      tls:
+        httpsRedirect: true
+    - hosts:
+        - "demo.lab"
+        - "www.demo.lab"
+        - "bookinfo.demo.lab"
+        - "grafana.demo.lab"
+        - "alertmanager.demo.lab"
+        - "prometheus.demo.lab"
+        - "istio-prometheus.demo.lab"
+        - "kiali.demo.lab"
+        - "tracing.demo.lab"
+      port:
+        number: 443
+        name: https
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: ingress-cert # This should match the Certificate secretName

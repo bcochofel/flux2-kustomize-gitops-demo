@@ -1,0 +1,23 @@
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: ingress-cert
+  namespace: istio-system
+spec:
+  secretName: ingress-cert
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  dnsNames:
+    - "demo.lab"
+    - "www.demo.lab"
+    - "bookinfo.demo.lab"
+    - "grafana.demo.lab"
+    - "alertmanager.demo.lab"
+    - "prometheus.demo.lab"
+    - "istio-prometheus.demo.lab"
+    - "kiali.demo.lab"
+    - "tracing.demo.lab"
+  # Issuer references are always required.
+  issuerRef:
+    name: selfsigned-issuer
