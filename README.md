@@ -77,6 +77,10 @@ watch flux get kustomizations
 
 ### Mozilla SOPS
 
+Check [this](https://toolkit.fluxcd.io/guides/mozilla-sops/) to create the GPG key and the `sops-gpg` secret.
+
+After creating you can encrypt secretsi, on the `sops-secrets` folder using the pub key.
+
 ## Connecting to Virtual Services
 
 To check the External IP for the Istio Ingress Gateway use:
@@ -101,6 +105,7 @@ You can now connect to the Web interface using those addresses.
 
 ## References
 
+* [Mozilla SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/#gitops-workflow)
 * [Istio Operator](https://istio.io/latest/docs/setup/install/operator/)
 * [Flux GitOps Toolkit](https://toolkit.fluxcd.io/)
 * [Istio / Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/)
