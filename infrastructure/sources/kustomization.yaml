@@ -6,5 +6,4 @@ resources:
   - prometheus-community.yaml
   - grafana-community.yaml
   - bitnami.yaml
-  - bitnami-labs.yaml
   - jetstack.yaml
