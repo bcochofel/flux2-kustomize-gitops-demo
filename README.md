@@ -4,6 +4,8 @@ GitOps demo with Flux2 and Kustomize
 
 ## Dependencies
 
+Install gnupg and SOPS.
+
 ## Bootstrap staging cluster
 
 The bootstrap process has some manual steps:
