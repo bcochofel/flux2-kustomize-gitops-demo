@@ -4,8 +4,6 @@ GitOps demo with Flux2 and Kustomize
 
 ## Dependencies
 
-download the kubeseal binary from [GitHub](https://github.com/bitnami-labs/sealed-secrets/releases).
-
 ## Bootstrap staging cluster
 
 The bootstrap process has some manual steps:
