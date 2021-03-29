@@ -1,0 +1,38 @@
+apiVersion: v1
+data:
+    address: ENC[AES256_GCM,data:M1ZW4i4Ux0gqpUIBKDJEcy4KpveMh2bSYlGczGY92o2S0zwvdJRsyGTkwPimrfauCsL8iT5rQ8mQbs0bCONko5a+WS+BkHFiBtxbgT8D+ckxBKB7aLt5+IPLhP0o8sT4ndiMkgUE2eowHOab,iv:30aFRL/TpsVUQeL3a9w87aXxUAwMKRmqT/uUMlg4x54=,tag:XL9vQeMLQFOv5V8X+ctS9g==,type:str]
+kind: Secret
+metadata:
+    creationTimestamp: null
+    name: slack-url
+    namespace: flux-system
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-03-29T21:04:51Z'
+    mac: ENC[AES256_GCM,data:aOJQQOITDtu73iOKxnW/LoDRdgw3NEpAd0wJ3Gp3b94Bt5G8eX4pSdKqJ+2Z83s5vpKaHQXsRlh1eiPXQnwBwv94MspJYWs1BeWf5oRVdAiOLwh74wQQ2OUQJPuY91foCALBvH9NGKT7OXfqA//GzcAukkzZTMxKtpHjexOnBv4=,iv:dxtkv0Dqlj8KCoJBuofk/IpxxZJ0cj38sQS4U73pNMM=,tag:H5KuY9ELsb0xpHx9P9w4lg==,type:str]
+    pgp:
+    -   created_at: '2021-03-29T21:04:50Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMAz9909IKAD7dAQ//dxYzapWui3w9ncxe9tcHcoTOcqtxgVvqHBoX+tAZri4M
+            v6CgMO6Xc6j/edRmL1Ic4fZSGYR5JuJvLqToyfShOMRXBUJZRpJi+5HXhtIkBK/o
+            bh7/JEyFTGbii1sHJO7B2FrOoWyT4XnAgLBRIh3lP+l/xOcYMyCGDgwt/FXcTF2K
+            651DjO4OPczF8zXaZS/WU5oxXOhf7Qnm/Mxq+yYOxJM3gJxmdy2toz7SacIMJI+j
+            jgIMGCQ0+oy7TiUd/ygPaG4/R6GKu3VwgrOdpZzPSjlqyAsrJtCC0nJ+9BxKzAkX
+            5yzF8YMMO3WV9RiuYP5kbnQ5PQDV9I/iqakTN9ovJqf7bPMn/mRY8L+OOo+GaNHC
+            1W7Co5eoca9CeF0w2PCWWF5iV4A7rNusCeEdAAYqm/jM/DlvPwHaJVuGMm0j48ov
+            t9nfJlHuPWl1A1XLKk+PYUITS8EE4lQXnzcYPho/oIMDs/+UP13u3qJt76Vk5Chz
+            yZGPePlwJ5uomQBffFgBjeMHzlGyE2bvbVHxOhINV1ZWhGkwCkQT4dVAYvuU536t
+            x67YUHUCH2ZdnYvLWhjLu0oOD687zDLWwJEv5YH+hOlQheV2KEpiwW3uDlhzDccs
+            xb4ljiBEVzDtK6qw0Qktts8zlTcSMBTSG9kr+ST+fDZ0Kz9f9Rx+RP56g40COWnS
+            XgHHlACOFTAVNWmqTUlLqhzK+ywA6RHk7UKtpf65wZUBR8siPGVqdX1a1UFb1tyZ
+            FSpx1Lhq/uEDq+HMJh8J+U8IwmZaIOowXm2f4e53/nhPFN9gUJhADc7ouWxNqrg=
+            =3z7Z
+            -----END PGP MESSAGE-----
+        fp: E52033387095BBAF2E385440DB4E9530273319E4
+    encrypted_regex: ^(data|stringData)$
+    version: 3.6.1
