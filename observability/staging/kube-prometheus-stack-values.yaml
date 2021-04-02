@@ -18,7 +18,10 @@ spec:
       enabled: false
     alertmanager:
       alertmanagerSpec:
-        listenLocal: true
+        podMetadata:
+          annotations:
+            traffic.sidecar.istio.io/includeInboundPorts: ""   # do not intercept any inbound ports
+            traffic.sidecar.istio.io/includeOutboundIPRanges: ""  # do not intercept any outbound traffic
     grafana:
       podLabels:
         app: grafana
