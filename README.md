@@ -54,6 +54,8 @@ pre-flight check
 flux check --pre
 ```
 
+**NOTE:** If you have any previously created secret for `sops` you should apply it now.
+
 bootstrap cluster
 
 ```bash
