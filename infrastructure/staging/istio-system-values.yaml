@@ -3,7 +3,7 @@ apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
 metadata:
   namespace: istio-system
-  name: istio-demo
+  name: istio
 spec:
   profile: demo
   meshConfig:
@@ -17,10 +17,10 @@ spec:
         enabled: true
         k8s:
           serviceAnnotations:
-            metallb.universe.tf/address-pool: "production"
+            metallb.universe.tf/address-pool: "default"
           service:
             type: LoadBalancer
-            loadBalancerIP: 192.168.77.105
+            loadBalancerIP: 192.168.77.90
     egressGateways:
       - name: istio-egressgateway
         enabled: false
