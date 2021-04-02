@@ -77,6 +77,51 @@ spec:
             - source_labels: [__meta_kubernetes_pod_container_port_name]
               action: keep
               regex: '.*-envoy-prom'
+      additionalPodMonitors:
+        - name: source-controller
+          additionalLabels:
+            tier: cluster
+          selector:
+            matchLabels:
+              app: source-controller
+          namespaceSelector:
+            matchNames:
+              - flux-system
+          podMetricsEndpoints:
+            - port: http-prom
+        - name: kustomize-controller
+          additionalLabels:
+            tier: cluster
+          selector:
+            matchLabels:
+              app: kustomize-controller
+          namespaceSelector:
+            matchNames:
+              - flux-system
+          podMetricsEndpoints:
+            - port: http-prom
+        - name: helm-controller
+          additionalLabels:
+            tier: cluster
+          selector:
+            matchLabels:
+              app: helm-controller
+          namespaceSelector:
+            matchNames:
+              - flux-system
+          podMetricsEndpoints:
+            - port: http-prom
+        - name: notification-controller
+          additionalLabels:
+            tier: cluster
+          selector:
+            matchLabels:
+              app: notification-controller
+          namespaceSelector:
+            matchNames:
+              - flux-system
+          podMetricsEndpoints:
+            - port: http-prom
 #    prometheus:
 #      annotations:
 #        traffic.sidecar.istio.io/includeInboundPorts: ""   # do not intercept any inbound ports
