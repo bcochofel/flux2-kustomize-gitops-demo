@@ -48,6 +48,9 @@ spec:
         externalUrl: http://alertmanager.demo.lab
     prometheus:
       prometheusSpec:
+        externalLabels:
+          cluster: demolab
+          environment: staging
         externalUrl: http://prometheus.demo.lab
         ruleSelector:
           matchLabels:
@@ -55,6 +58,25 @@ spec:
         serviceMonitorSelector:
           matchLabels:
             tier: cluster
+        additionalScrapeConfigs:
+          - job_name: 'istiod'
+            kubernetes_sd_configs:
+            - role: endpoints
+              namespaces:
+                names:
+                - istio-system
+            relabel_configs:
+            - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+              action: keep
+              regex: istiod;http-monitoring
+          - job_name: 'envoy-stats'
+            metrics_path: /stats/prometheus
+            kubernetes_sd_configs:
+            - role: pod
+            relabel_configs:
+            - source_labels: [__meta_kubernetes_pod_container_port_name]
+              action: keep
+              regex: '.*-envoy-prom'
 #    prometheus:
 #      annotations:
 #        traffic.sidecar.istio.io/includeInboundPorts: ""   # do not intercept any inbound ports
