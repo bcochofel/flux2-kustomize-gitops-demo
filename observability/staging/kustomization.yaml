@@ -6,5 +6,8 @@ resources:
   - namespace.yaml
   - ../base/kube-prometheus-stack
   - ../base/loki-stack
+  - ../base/tempo
 patchesStrategicMerge:
   - kube-prometheus-stack-values.yaml
+  - loki-stack-values.yaml
+  - tempo-values.yaml
