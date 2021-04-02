@@ -47,20 +47,20 @@ spec:
         dashboardproviders.yaml:
           apiVersion: 1
           providers:
-          - name: 'default'
+          - name: 'flux'
             orgId: 1
             folder: ''
             type: file
             disableDeletion: true
             editable: false
             options:
-              path: /var/lib/grafana/dashboards/default
+              path: /var/lib/grafana/dashboards/flux
       dashboards:
-        default:
-          flux-cluster:
+        flux:
+          cluster:
             url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/grafana/dashboards/cluster.json
             token: ''
-          flux-control-plane:
+          control-plane:
             url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/grafana/dashboards/control-plane.json
             token: ''
     alertmanager:
