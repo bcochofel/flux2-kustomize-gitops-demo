@@ -13,14 +13,14 @@ spec:
       replicas: 1
       serviceMonitor:
         enabled: true
-        interval: 15s
+        interval: 30s
         additionalLabels:
           tier: cluster
     promtail:
       enabled: true
       serviceMonitor:
         enabled: true
-        interval: 15s
+        interval: 30s
         additionalLabels:
           tier: cluster
     fluent-bit:
