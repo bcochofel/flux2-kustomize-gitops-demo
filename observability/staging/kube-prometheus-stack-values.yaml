@@ -19,6 +19,8 @@ spec:
     alertmanager:
       alertmanagerSpec:
         podMetadata:
+          labels:
+            text: "text"
           annotations:
             traffic.sidecar.istio.io/includeInboundPorts: ""
             traffic.sidecar.istio.io/includeOutboundIPRanges: ""
