@@ -15,7 +15,7 @@ spec:
     kubeScheduler:
       enabled: false
     kubeProxy:
-     enabled: false
+      enabled: false
     grafana:
       podLabels:
         app: grafana

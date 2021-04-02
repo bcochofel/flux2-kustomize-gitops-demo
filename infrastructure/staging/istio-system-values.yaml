@@ -11,6 +11,7 @@ spec:
     accessLogFile: /dev/stdout
     accessLogEncoding: JSON
     enableTracing: false
+    enablePrometheusMerge: false
   components:
     ingressGateways:
       - name: istio-ingressgateway
