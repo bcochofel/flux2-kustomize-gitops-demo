@@ -19,8 +19,9 @@ spec:
     alertmanager:
       alertmanagerSpec:
         podMetadata:
-          traffic.sidecar.istio.io/includeInboundPorts: ""   # do not intercept any inbound ports
-          traffic.sidecar.istio.io/includeOutboundIPRanges: ""  # do not intercept any outbound traffic
+          annotations:
+            traffic.sidecar.istio.io/includeInboundPorts: ""
+            traffic.sidecar.istio.io/includeOutboundIPRanges: ""
     grafana:
       podLabels:
         app: grafana
