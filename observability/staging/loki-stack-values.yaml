@@ -7,3 +7,25 @@ spec:
   chart:
     spec:
       version: ">=2.3.0"
+  values:
+    loki:
+      enabled: true
+      replicas: 1
+      serviceMonitor:
+        enabled: true
+        interval: 15s
+        additionalLabels:
+          tier: cluster
+    promtail:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+        interval: 15s
+        additionalLabels:
+          tier: cluster
+    fluent-bit:
+      enabled: false
+    grafana:
+      enabled: false
+    prometheus:
+      enabled: false
