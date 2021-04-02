@@ -5,5 +5,6 @@ namespace: observability
 resources:
   - namespace.yaml
   - ../base/kube-prometheus-stack
+  - ../base/loki-stack
 patchesStrategicMerge:
   - kube-prometheus-stack-values.yaml
