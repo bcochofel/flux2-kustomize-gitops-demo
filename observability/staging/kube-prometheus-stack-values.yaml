@@ -16,14 +16,6 @@ spec:
       enabled: false
     kubeProxy:
       enabled: false
-    alertmanager:
-      alertmanagerSpec:
-        podMetadata:
-          labels:
-            text: "text"
-          annotations:
-            traffic.sidecar.istio.io/includeInboundPorts: ""
-            traffic.sidecar.istio.io/includeOutboundIPRanges: ""
     grafana:
       podLabels:
         app: grafana
