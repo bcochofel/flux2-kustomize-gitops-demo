@@ -25,6 +25,11 @@ spec:
       grafana.ini:
         server:
           root_url: http://grafana.demo.lab
+      additionalDataSources:
+        - name: Loki
+          type: loki
+          uid: loki_ds
+          url: http://loki-stack:3100
     alertmanager:
       alertmanagerSpec:
         externalUrl: http://alertmanager.demo.lab
