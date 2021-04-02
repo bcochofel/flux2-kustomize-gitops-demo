@@ -26,10 +26,23 @@ spec:
         server:
           root_url: http://grafana.demo.lab
       additionalDataSources:
+        - name: Tempo
+          type: tempo
+          access: proxy
+          uid: tempo_ds
+          url: http://tempo:16686
         - name: Loki
           type: loki
+          access: proxy
           uid: loki_ds
           url: http://loki-stack:3100
+          jsonData:
+            maxLines: 1000
+            derivedFields:
+              - datasourceUid: tempo_ds
+                matchrRegex: "traceID=(\\w+)"
+                name: TraceID
+                url: "$${__value.raw}"
     alertmanager:
       alertmanagerSpec:
         externalUrl: http://alertmanager.demo.lab
