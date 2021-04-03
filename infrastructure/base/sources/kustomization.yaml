@@ -7,3 +7,4 @@ resources:
   - grafana-community.yaml
   - bitnami.yaml
   - jetstack.yaml
+  - kiali.yaml
