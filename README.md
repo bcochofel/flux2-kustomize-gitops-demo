@@ -115,6 +115,19 @@ finish because of istio-proxy we can add the following annotations:
             sidecar.istio.io/inject: "false"
 ```
 
+To get Thanos Query DNS Stores working we need to add listenLocal on Prometheus:
+
+```yaml
+  values:
+    prometheus:
+      prometheusSpec:
+        listenLocal: true
+        thanos:
+          baseImage: quay.io/thanos/thanos
+          version: v0.19.0
+          listenLocal: true
+```
+
 ## Connecting to Virtual Services
 
 To check the External IP for the Istio Ingress Gateway use:
