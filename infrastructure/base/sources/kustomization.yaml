@@ -8,3 +8,4 @@ resources:
   - bitnami.yaml
   - jetstack.yaml
   - kiali.yaml
+  - banzaicloud.yaml
