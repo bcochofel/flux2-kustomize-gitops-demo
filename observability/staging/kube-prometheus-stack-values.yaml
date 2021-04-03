@@ -64,14 +64,35 @@ spec:
             url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/grafana/dashboards/control-plane.json
             token: ''
     alertmanager:
+      serviceMonitor:
+        scheme: "https"
+        tlsConfig:
+          caFile: /etc/prom-certs/root-cert.pem
+          certFile: /etc/prom-certs/cert-chain.pem
+          keyFile: /etc/prom-certs/key.pem
+          insecureSkipVerify: true
       alertmanagerSpec:
         externalUrl: http://alertmanager.demo.lab
     prometheus:
+      annotations:
+        traffic.sidecar.istio.io/includeInboundPorts: ""
+        traffic.sidecar.istio.io/includeOutboundIPRanges: ""
+        proxy.istio.io/config: |
+          proxyMetadata:
+            OUTPUT_CERTS: /etc/istio-output-certs
+        sidecar.istio.io/userVolumeMount: '[{"name": "istio-certs", "mountPath": "/etc/istio-output-certs"}]'
       prometheusSpec:
         externalLabels:
           cluster: demolab
           environment: staging
         externalUrl: http://prometheus.demo.lab
+        volumes:
+          - emptyDir:
+              medium: Memory
+            name: istio-certs
+        volumeMounts:
+          - mountPath: /etc/prom-certs/
+            name: istio-certs
         ruleSelector:
           matchLabels:
             tier: cluster
@@ -142,27 +163,3 @@ spec:
               - flux-system
           podMetricsEndpoints:
             - port: http-prom
-#    prometheus:
-#      annotations:
-#        traffic.sidecar.istio.io/includeInboundPorts: ""   # do not intercept any inbound ports
-#        traffic.sidecar.istio.io/includeOutboundIPRanges: ""  # do not intercept any outbound traffic
-#        proxy.istio.io/config: |  # configure an env variable `OUTPUT_CERTS` to write certificates to the given folder
-#          proxyMetadata:
-#            OUTPUT_CERTS: /etc/istio-output-certs
-#        sidecar.istio.io/userVolumeMount: '[{"name": "istio-certs", "mountPath": "/etc/istio-output-certs"}]' # mount the shared volume at sidecar proxy
-#      prometheusSpec:
-#        volumes:
-#          - emptyDir:
-#              medium: Memory
-#            name: istio-certs
-#        volumeMounts:
-#          - mountPath: /etc/prom-certs/
-#            name: istio-certs
-##      serviceMonitor:
-##        scheme: https
-##        tlsConfig:
-##          caFile: /etc/prom-certs/root-cert.pem
-##          certFile: /etc/prom-certs/cert-chain.pem
-##          keyFile: /etc/prom-certs/key.pem
-##          insecureSkipVerify: true  # Prometheus does not support Istio security naming, thus skip verifying target pod ceritifcate
-#
