@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - gateway
   - flux-notifications
+  - bookinfo

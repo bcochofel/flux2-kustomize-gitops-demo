@@ -118,6 +118,7 @@ Example using IP 192.168.77.105 (from the MetalLB Production pool):
 192.168.77.105 grafana.demo.lab
 192.168.77.105 alertmanager.demo.lab
 192.168.77.105 tracing.demo.lab
+192.168.77.105 bookinfo.demo.lab
 ```
 
 You can now connect to the Web interface using those addresses.
