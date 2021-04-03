@@ -85,6 +85,22 @@ Check [this](https://toolkit.fluxcd.io/guides/mozilla-sops/) to create the GPG k
 
 After creating you can encrypt secretsi, on the `sops-secrets` folder using the pub key.
 
+## Observability and Istio Mesh
+
+For now the observability namespace is outside Istio Mesh since there are some
+issues like:
+
+* alermanager service monitor not showing
+* thanos querier without stores
+* prometheus operator jobs don't complete because sidecar doesn't exit [(check here)](https://medium.com/redbox-techblog/handling-istio-sidecars-in-kubernetes-jobs-c392661c4af7)
+
+To put everything on the mesh uncomment the lines from:
+
+* observability/staging/namespace.yaml
+* observability/staging/kube-prometheus-stack-values.yaml
+
+More info [here](https://istio.io/latest/docs/ops/integrations/prometheus/)
+
 ## Connecting to Virtual Services
 
 To check the External IP for the Istio Ingress Gateway use:
@@ -101,6 +117,7 @@ Example using IP 192.168.77.105 (from the MetalLB Production pool):
 192.168.77.105 prometheus.demo.lab
 192.168.77.105 grafana.demo.lab
 192.168.77.105 alertmanager.demo.lab
+192.168.77.105 tracing.demo.lab
 ```
 
 You can now connect to the Web interface using those addresses.
