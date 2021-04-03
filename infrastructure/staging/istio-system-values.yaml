@@ -10,8 +10,11 @@ spec:
     enablePrometheusMerge: false
     accessLogFile: /dev/stdout
     accessLogEncoding: JSON
-    enableTracing: false
+    enableTracing: true
     enablePrometheusMerge: false
+    defaultConfig:
+      tracing:
+        sampling: 100.0
   components:
     ingressGateways:
       - name: istio-ingressgateway
@@ -25,3 +28,8 @@ spec:
     egressGateways:
       - name: istio-egressgateway
         enabled: false
+    values:
+      global:
+        tracer:
+          zipkin:
+            address: tempo.observability:9411
