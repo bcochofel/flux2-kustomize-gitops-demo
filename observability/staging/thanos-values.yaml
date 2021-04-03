@@ -24,7 +24,7 @@ spec:
     compact:
       enabled: false
     bucket:
-      enabled: true
+      enabled: false
     rule:
       enabled: false
     sidecar:
