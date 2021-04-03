@@ -88,6 +88,7 @@ spec:
             OUTPUT_CERTS: /etc/istio-output-certs
         sidecar.istio.io/userVolumeMount: '[{"name": "istio-certs", "mountPath": "/etc/istio-output-certs"}]'
       serviceMonitor:
+        selfMonitor: false
         scheme: "https"
         tlsConfig:
           caFile: /etc/prom-certs/root-cert.pem
