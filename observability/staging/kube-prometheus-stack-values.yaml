@@ -93,6 +93,9 @@ spec:
         volumeMounts:
           - mountPath: /etc/prom-certs/
             name: istio-certs
+        thanos:
+          baseImage: quay.io/thanos/thanos
+          version: v0.19.0
         ruleSelector:
           matchLabels:
             tier: cluster
