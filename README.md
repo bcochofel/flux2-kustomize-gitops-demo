@@ -142,6 +142,7 @@ Example using IP 192.168.77.105 (from the MetalLB Production pool):
 
 ```bash
 192.168.77.105 prometheus.demo.lab
+192.168.77.105 thanos.demo.lab
 192.168.77.105 grafana.demo.lab
 192.168.77.105 alertmanager.demo.lab
 192.168.77.105 tracing.demo.lab
