@@ -137,6 +137,20 @@ To scrape alertmanager add listenLocal:
         listenLocal: true
 ```
 
+you can use mTLS:
+
+```yaml
+  values:
+    alertmanager:
+      serviceMonitor:
+        scheme: "https"
+        tlsConfig:
+          caFile: /etc/prom-certs/root-cert.pem
+          certFile: /etc/prom-certs/cert-chain.pem
+          keyFile: /etc/prom-certs/key.pem
+          insecureSkipVerify: true
+```
+
 ## Connecting to Virtual Services
 
 To check the External IP for the Istio Ingress Gateway use:
