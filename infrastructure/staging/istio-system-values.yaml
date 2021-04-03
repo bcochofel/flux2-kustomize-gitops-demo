@@ -15,7 +15,7 @@ spec:
       tracing:
         zipkin:
           address: tempo.observability:9411
-        sampling: 50.0
+        sampling: 50
   components:
     ingressGateways:
       - name: istio-ingressgateway
