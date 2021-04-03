@@ -72,6 +72,7 @@ spec:
 #          keyFile: /etc/prom-certs/key.pem
 #          insecureSkipVerify: true
       alertmanagerSpec:
+        listenLocal: true
         externalUrl: http://alertmanager.demo.lab
     prometheusOperator:
       admissionWebhooks:
