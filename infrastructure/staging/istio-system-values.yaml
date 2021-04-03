@@ -14,6 +14,8 @@ spec:
     enablePrometheusMerge: false
     defaultConfig:
       tracing:
+        zipkin:
+          address: tempo.observability:9411
         sampling: 100.0
   components:
     ingressGateways:
@@ -28,8 +30,3 @@ spec:
     egressGateways:
       - name: istio-egressgateway
         enabled: false
-    values:
-      global:
-        tracer:
-          zipkin:
-            address: tempo.observability:9411
