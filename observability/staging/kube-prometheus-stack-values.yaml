@@ -98,7 +98,7 @@ spec:
         thanos:
           baseImage: quay.io/thanos/thanos
           version: v0.19.0
-          listenLocal: true
+          listenLocal: true # we need this since we're using istio
         ruleSelector:
           matchLabels:
             tier: cluster
