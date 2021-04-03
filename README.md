@@ -101,6 +101,19 @@ To put everything on the mesh uncomment the lines from:
 
 More info [here](https://istio.io/latest/docs/ops/integrations/prometheus/)
 
+### Workarounds
+
+Patch AdmissionWebhooks (kube prometheus stack chart):
+
+```yaml
+  values:
+    prometheusOperator:
+      admissionWebhooks:
+        patch:
+          podAnnotations:
+            sidecar.istio.io/inject: "false"
+```
+
 ## Connecting to Virtual Services
 
 To check the External IP for the Istio Ingress Gateway use:

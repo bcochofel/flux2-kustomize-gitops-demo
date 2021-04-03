@@ -73,6 +73,11 @@ spec:
 #          insecureSkipVerify: true
       alertmanagerSpec:
         externalUrl: http://alertmanager.demo.lab
+    prometheusOperator:
+      admissionWebhooks:
+        patch:
+          podAnnotations:
+            sidecar.istio.io/inject: "false"
     prometheus:
       annotations:
         traffic.sidecar.istio.io/includeInboundPorts: ""
