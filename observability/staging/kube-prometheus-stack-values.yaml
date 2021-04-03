@@ -81,6 +81,8 @@ spec:
           proxyMetadata:
             OUTPUT_CERTS: /etc/istio-output-certs
         sidecar.istio.io/userVolumeMount: '[{"name": "istio-certs", "mountPath": "/etc/istio-output-certs"}]'
+      thanosService:
+        enabled: true
       prometheusSpec:
         externalLabels:
           cluster: demolab
