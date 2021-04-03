@@ -16,3 +16,36 @@ spec:
         deployment:
           accessible_namespaces:
             - '**'
+        istio_namespace: istio-system
+        external_services:
+          istio:
+            component_status:
+              enabled: true
+              components:
+                - app_label: istiod
+                  is_core: true
+                - app_label: istio-ingressgateway
+                  is_core: true
+                - app_label: istio-egressgateway
+                  is_core: false
+            config_map_name: "istio"
+            istio_identity_domain: "svc.cluster.local"
+            istio_injection_annotation: "sidecar.istio.io/inject"
+            istio_sidecar_annotation: "sidecar.istio.io/status"
+            url_service_version: ""
+          prometheus:
+            url: "http://prometheus-operated.observability.svc.cluster.local:9090"
+          grafana:
+            enabled: false
+            auth:
+              insecure_skip_verify: true
+              type: "none"
+            in_cluster_url: "http://kube-prometheus-stack-grafana.observability.svc.cluster.local:80"
+            url: "https://grafana.demo.lab"
+          tracing:
+            enabled: true
+            auth:
+              insecure_skip_verify: true
+              type: "none"
+            in_cluster_url: "http://tempo.observability.svc.cluster.local:16686"
+            url: "https://tracing.demo.lab"

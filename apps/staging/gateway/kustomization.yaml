@@ -9,3 +9,4 @@ resources:
   - alertmanager-vs.yaml
   - prometheus-vs.yaml
   - grafana-vs.yaml
+  - tracing-vs.yaml
