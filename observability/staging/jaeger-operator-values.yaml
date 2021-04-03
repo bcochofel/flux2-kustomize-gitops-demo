@@ -1,0 +1,14 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jaeger-operator
+spec:
+  chart:
+    spec:
+      version: ">=2.19.0"
+  values:
+    jaeger:
+      create: true
+      spec:
+        strategy: allInOne
