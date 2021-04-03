@@ -128,6 +128,15 @@ To get Thanos Query DNS Stores working we need to add listenLocal on Prometheus:
           listenLocal: true
 ```
 
+To scrape alertmanager add listenLocal:
+
+```yaml
+  values:
+    alertmanager:
+      alertmanagerSpec:
+        listenLocal: true
+```
+
 ## Connecting to Virtual Services
 
 To check the External IP for the Istio Ingress Gateway use:

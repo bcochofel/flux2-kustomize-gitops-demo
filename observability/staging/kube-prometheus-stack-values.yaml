@@ -64,13 +64,13 @@ spec:
             url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/grafana/dashboards/control-plane.json
             token: ''
     alertmanager:
-#      serviceMonitor:
-#        scheme: "https"
-#        tlsConfig:
-#          caFile: /etc/prom-certs/root-cert.pem
-#          certFile: /etc/prom-certs/cert-chain.pem
-#          keyFile: /etc/prom-certs/key.pem
-#          insecureSkipVerify: true
+      serviceMonitor:
+        scheme: "https"
+        tlsConfig:
+          caFile: /etc/prom-certs/root-cert.pem
+          certFile: /etc/prom-certs/cert-chain.pem
+          keyFile: /etc/prom-certs/key.pem
+          insecureSkipVerify: true
       alertmanagerSpec:
         listenLocal: true
         externalUrl: http://alertmanager.demo.lab
