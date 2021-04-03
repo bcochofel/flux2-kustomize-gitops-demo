@@ -5,3 +5,4 @@ resources:
   - gateway
   - flux-notifications
   - bookinfo
+  - dnsutils.yaml
