@@ -13,7 +13,7 @@ spec:
       replicaLabels:
         - prometheus_replica
       stores:
-        - "--store=dnssrv+_grpc._tcp.kube-prometheus-stack-thanos-discovery.observability.svc.cluster.local"
+        - "dnssrv+_grpc._tcp.kube-prometheus-stack-thanos-discovery.observability.svc.cluster.local"
       metrics:
         serviceMonitor:
           enabled: true
