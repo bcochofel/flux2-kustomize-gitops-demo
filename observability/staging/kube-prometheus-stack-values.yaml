@@ -74,13 +74,13 @@ spec:
       alertmanagerSpec:
         externalUrl: http://alertmanager.demo.lab
     prometheus:
-#      annotations:
-#        traffic.sidecar.istio.io/includeInboundPorts: ""
-#        traffic.sidecar.istio.io/includeOutboundIPRanges: ""
-#        proxy.istio.io/config: |
-#          proxyMetadata:
-#            OUTPUT_CERTS: /etc/istio-output-certs
-#        sidecar.istio.io/userVolumeMount: '[{"name": "istio-certs", "mountPath": "/etc/istio-output-certs"}]'
+      annotations:
+        traffic.sidecar.istio.io/includeInboundPorts: ""
+        traffic.sidecar.istio.io/includeOutboundIPRanges: ""
+        proxy.istio.io/config: |
+          proxyMetadata:
+            OUTPUT_CERTS: /etc/istio-output-certs
+        sidecar.istio.io/userVolumeMount: '[{"name": "istio-certs", "mountPath": "/etc/istio-output-certs"}]'
       thanosService:
         enabled: true
       prometheusSpec:
@@ -88,13 +88,13 @@ spec:
           cluster: demolab
           environment: staging
         externalUrl: http://prometheus.demo.lab
-#        volumes:
-#          - emptyDir:
-#              medium: Memory
-#            name: istio-certs
-#        volumeMounts:
-#          - mountPath: /etc/prom-certs/
-#            name: istio-certs
+        volumes:
+          - emptyDir:
+              medium: Memory
+            name: istio-certs
+        volumeMounts:
+          - mountPath: /etc/prom-certs/
+            name: istio-certs
         thanos:
           baseImage: quay.io/thanos/thanos
           version: v0.19.0
