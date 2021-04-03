@@ -64,48 +64,41 @@ spec:
             url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/grafana/dashboards/control-plane.json
             token: ''
     alertmanager:
-      serviceMonitor:
-        scheme: "https"
-        tlsConfig:
-          caFile: /etc/prom-certs/root-cert.pem
-          certFile: /etc/prom-certs/cert-chain.pem
-          keyFile: /etc/prom-certs/key.pem
-          insecureSkipVerify: true
+#      serviceMonitor:
+#        scheme: "https"
+#        tlsConfig:
+#          caFile: /etc/prom-certs/root-cert.pem
+#          certFile: /etc/prom-certs/cert-chain.pem
+#          keyFile: /etc/prom-certs/key.pem
+#          insecureSkipVerify: true
       alertmanagerSpec:
         externalUrl: http://alertmanager.demo.lab
     prometheus:
-      annotations:
-        traffic.sidecar.istio.io/includeInboundPorts: ""
-        traffic.sidecar.istio.io/includeOutboundIPRanges: ""
-        proxy.istio.io/config: |
-          proxyMetadata:
-            OUTPUT_CERTS: /etc/istio-output-certs
-        sidecar.istio.io/userVolumeMount: '[{"name": "istio-certs", "mountPath": "/etc/istio-output-certs"}]'
+#      annotations:
+#        traffic.sidecar.istio.io/includeInboundPorts: ""
+#        traffic.sidecar.istio.io/includeOutboundIPRanges: ""
+#        proxy.istio.io/config: |
+#          proxyMetadata:
+#            OUTPUT_CERTS: /etc/istio-output-certs
+#        sidecar.istio.io/userVolumeMount: '[{"name": "istio-certs", "mountPath": "/etc/istio-output-certs"}]'
       thanosService:
         enabled: true
       prometheusSpec:
-        ## Standard object’s metadata. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata
-        ## Metadata Labels and Annotations gets propagated to the prometheus pods.
-        ##
-        podMetadata:
-          annotations:
-            traffic.sidecar.istio.io/excludeOutboundPorts: "10901"
-            traffic.sidecar.istio.io/excludeInboundPorts: "10901"
         externalLabels:
           cluster: demolab
           environment: staging
         externalUrl: http://prometheus.demo.lab
-        volumes:
-          - emptyDir:
-              medium: Memory
-            name: istio-certs
-        volumeMounts:
-          - mountPath: /etc/prom-certs/
-            name: istio-certs
+#        volumes:
+#          - emptyDir:
+#              medium: Memory
+#            name: istio-certs
+#        volumeMounts:
+#          - mountPath: /etc/prom-certs/
+#            name: istio-certs
         thanos:
           baseImage: quay.io/thanos/thanos
           version: v0.19.0
-          listenLocal: true # we need this since we're using istio
+#          listenLocal: true # we need this since we're using istio
         ruleSelector:
           matchLabels:
             tier: cluster
