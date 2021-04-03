@@ -103,7 +103,8 @@ More info [here](https://istio.io/latest/docs/ops/integrations/prometheus/)
 
 ### Workarounds
 
-Patch AdmissionWebhooks (kube prometheus stack chart):
+Patch AdmissionWebhooks for Prometheus Operator are Job:, and since Jobs don't
+finish because of istio-proxy we can add the following annotations:
 
 ```yaml
   values:
