@@ -10,3 +10,4 @@ resources:
   - prometheus-vs.yaml
   - grafana-vs.yaml
   - tracing-vs.yaml
+  - thanos-query-vs.yaml
