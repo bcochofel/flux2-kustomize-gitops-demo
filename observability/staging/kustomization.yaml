@@ -5,9 +5,11 @@ namespace: observability
 resources:
   - namespace.yaml
   - ../base/kube-prometheus-stack
+  - ../base/thanos
   - ../base/loki-stack
   - ../base/tempo
 patchesStrategicMerge:
   - kube-prometheus-stack-values.yaml
+  - thanos-values.yaml
   - loki-stack-values.yaml
   - tempo-values.yaml
