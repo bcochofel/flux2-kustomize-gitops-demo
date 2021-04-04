@@ -15,7 +15,7 @@ spec:
       tracing:
         zipkin:
           address: jaeger-operator-jaeger-collector.observability:9411
-        sampling: 50
+        sampling: 100
   components:
     ingressGateways:
       - name: istio-ingressgateway
