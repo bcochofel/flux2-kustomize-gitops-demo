@@ -6,8 +6,8 @@ resources:
   - gateway.yaml
   - issuer.yaml
   - certificate.yaml
-  - alertmanager-vs.yaml
-  - prometheus-vs.yaml
+#  - alertmanager-vs.yaml
+#  - prometheus-vs.yaml
   - grafana-vs.yaml
   - tracing-vs.yaml
   - thanos-query-vs.yaml

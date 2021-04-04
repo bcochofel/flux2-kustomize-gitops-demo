@@ -4,7 +4,8 @@ kind: Kustomization
 namespace: default
 resources:
 - namespace.yaml
-- bookinfo-vs.yaml
+#- bookinfo-vs.yaml
+- bookinfo-gateway.yaml
 - https://raw.githubusercontent.com/istio/istio/release-1.9/samples/bookinfo/platform/kube/bookinfo.yaml
 - https://raw.githubusercontent.com/istio/istio/release-1.9/samples/bookinfo/networking/destination-rule-all.yaml
 - https://raw.githubusercontent.com/istio/istio/release-1.9/samples/bookinfo/platform/kube/bookinfo-details-v2.yaml
