@@ -45,10 +45,6 @@ spec:
             maxLines: 1000
             derivedFields:
               - datasourceUid: jaeger_ds
-                matchrRegex: "traceID=(\\w+)"
-                name: TraceID
-                url: "$${__value.raw}"
-              - datasourceUid: jaeger_ds
                 matchrRegex: "TraceId:\\s(\\w+)"
                 name: TraceId
                 url: "$${__value.raw}"
