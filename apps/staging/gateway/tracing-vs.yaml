@@ -16,4 +16,4 @@ spec:
         - destination:
             port:
               number: 16686
-            host: tempo.observability.svc.cluster.local
+            host: jaeger-operator-jaeger-query.observability.svc.cluster.local

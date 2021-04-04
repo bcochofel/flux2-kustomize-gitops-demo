@@ -14,7 +14,7 @@ spec:
     defaultConfig:
       tracing:
         zipkin:
-          address: tempo.observability:9411
+          address: jaeger-operator-jaeger-collector.observability:9411
         sampling: 50
   components:
     ingressGateways:
