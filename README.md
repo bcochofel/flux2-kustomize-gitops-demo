@@ -176,6 +176,7 @@ alertmanager:
     - name: 'slack'
       slack_configs:
       - channel: '#notifications'
+        send_resolved: true
     templates:
     - '/etc/alertmanager/config/*.tmpl'
 ```
