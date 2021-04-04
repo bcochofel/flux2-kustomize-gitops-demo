@@ -26,11 +26,16 @@ spec:
         server:
           root_url: http://grafana.demo.lab
       additionalDataSources:
-        - name: Tempo
-          type: tempo
+        - name: Jaeger
+          type: jaeger
           access: proxy
-          uid: tempo_ds
-          url: http://tempo:16686
+          uid: jaeger_ds
+          url: http://jaeger-operator-jaeger-query:16686
+#        - name: Tempo
+#          type: tempo
+#          access: proxy
+#          uid: tempo_ds
+#          url: http://tempo:16686
         - name: Loki
           type: loki
           access: proxy
@@ -39,9 +44,13 @@ spec:
           jsonData:
             maxLines: 1000
             derivedFields:
-              - datasourceUid: tempo_ds
+              - datasourceUid: jaeger_ds
                 matchrRegex: "traceID=(\\w+)"
                 name: TraceID
+                url: "$${__value.raw}"
+              - datasourceUid: jaeger_ds
+                matchrRegex: "TraceId:\\s(\\w+)"
+                name: TraceId
                 url: "$${__value.raw}"
       dashboardProviders:
         dashboardproviders.yaml:
