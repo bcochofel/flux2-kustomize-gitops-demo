@@ -83,7 +83,7 @@ watch flux get kustomizations
 
 Check [this](https://toolkit.fluxcd.io/guides/mozilla-sops/) to create the GPG key and the `sops-gpg` secret.
 
-After creating you can encrypt secretsi, on the `sops-secrets` folder using the pub key.
+After creating you can encrypt secrets, on the `sops-secrets` folder using the pub key.
 
 ## Observability and Istio Mesh
 
@@ -149,6 +149,51 @@ you can use mTLS:
           certFile: /etc/prom-certs/cert-chain.pem
           keyFile: /etc/prom-certs/key.pem
           insecureSkipVerify: true
+```
+
+## Create AlertManager Config Secret
+
+To create AlertManager configuration secret create a YAML file (`/tmp/alertmanager.yaml`) with the contents:
+
+```yaml
+alertmanager:
+  config:
+    global:
+      slack_api_url: '<slack_webhook_url>'
+      resolve_timeout: 5m
+    route:
+      group_by: ['job']
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 12h
+      receiver: 'slack'
+      routes:
+      - match:
+          alertname: Watchdog
+        receiver: 'null'
+    receivers:
+    - name: 'null'
+    - name: 'slack'
+      slack_configs:
+      - channel: '#notifications'
+    templates:
+    - '/etc/alertmanager/config/*.tmpl'
+```
+
+**Note:** Replace <slack_webhook_url> with the Slack URL
+
+then create the secret (on the `sops-secrets` folder):
+
+```bash
+kubectl -n observability create secret generic alertmanager \
+  --from-file=values.yaml=/tmp/alertmanager.yaml \
+  --dry-run=client -o yaml > alertmanager.yaml
+```
+
+and finally encrypt the secret:
+
+```bash
+sops --encrypt --in-place alertmanager.yaml
 ```
 
 ## Connecting to Virtual Services

@@ -190,3 +190,6 @@ spec:
               - flux-system
           podMetricsEndpoints:
             - port: http-prom
+  valuesFrom:
+  - kind: Secret
+    name: alertmanager
