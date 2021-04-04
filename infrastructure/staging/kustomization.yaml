@@ -7,7 +7,6 @@ resources:
   - ../base/istio-system
   - ../base/cert-manager
 #  - ../base/kiali-operator
-  - ../base/kiali
 patchesStrategicMerge:
   - metallb-system-values.yaml
   - istio-system-values.yaml
