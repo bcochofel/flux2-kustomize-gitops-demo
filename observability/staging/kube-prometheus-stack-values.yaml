@@ -11,11 +11,11 @@ spec:
     commonLabels:
       tier: cluster
     kubeControllerManager:
-      enabled: false
+      enabled: true
     kubeScheduler:
-      enabled: false
+      enabled: true
     kubeProxy:
-      enabled: false
+      enabled: true
     grafana:
       podLabels:
         app: grafana
