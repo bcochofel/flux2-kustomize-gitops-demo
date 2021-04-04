@@ -16,12 +16,6 @@ spec:
       enabled: false
     kubeProxy:
       enabled: false
-    kubeEtcd:
-      enabled: true
-      endpoints:
-        - 192.168.77.21
-        - 192.168.77.22
-        - 192.168.77.23
     grafana:
       podLabels:
         app: grafana
