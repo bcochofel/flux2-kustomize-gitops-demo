@@ -40,9 +40,9 @@ spec:
             maxLines: 1000
             derivedFields:
               - datasourceUid: jaeger_ds
-                matcherRegex: "TraceID:\\s(\\w+)"
+                matcherRegex: "traceID=(\\w+)"
                 name: TraceId
-                url: "$${__value.raw}"
+                url: '$${__value.raw}'
       dashboardProviders:
         dashboardproviders.yaml:
           apiVersion: 1
