@@ -31,11 +31,6 @@ spec:
           access: proxy
           uid: jaeger_ds
           url: http://jaeger-operator-jaeger-query:16686
-#        - name: Tempo
-#          type: tempo
-#          access: proxy
-#          uid: tempo_ds
-#          url: http://tempo:16686
         - name: Loki
           type: loki
           access: proxy
@@ -45,7 +40,7 @@ spec:
             maxLines: 1000
             derivedFields:
               - datasourceUid: jaeger_ds
-                matchrRegex: "TraceId:\\s(\\w+)"
+                matchrRegex: "traceID=(\\w+)"
                 name: TraceId
                 url: "$${__value.raw}"
       dashboardProviders:
