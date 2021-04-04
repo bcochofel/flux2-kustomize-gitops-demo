@@ -8,5 +8,5 @@ resources:
 - bookinfo-gateway.yaml
 - https://raw.githubusercontent.com/istio/istio/release-1.9/samples/bookinfo/platform/kube/bookinfo.yaml
 - https://raw.githubusercontent.com/istio/istio/release-1.9/samples/bookinfo/networking/destination-rule-all.yaml
-- https://raw.githubusercontent.com/istio/istio/release-1.9/samples/bookinfo/platform/kube/bookinfo-details-v2.yaml
-- https://raw.githubusercontent.com/istio/istio/release-1.9/samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml
+#- https://raw.githubusercontent.com/istio/istio/release-1.9/samples/bookinfo/platform/kube/bookinfo-details-v2.yaml
+#- https://raw.githubusercontent.com/istio/istio/release-1.9/samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml
