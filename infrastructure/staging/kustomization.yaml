@@ -10,4 +10,5 @@ resources:
 patchesStrategicMerge:
   - metallb-system-values.yaml
   - istio-system-values.yaml
+  - cert-manager-values.yaml
 #  - kiali-operator-values.yaml
